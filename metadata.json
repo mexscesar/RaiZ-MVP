@@ -1,0 +1,6 @@
+{
+  "name": "RAIZ",
+  "description": "Plataforma de mapeamento de repertório e enraizamento cultural para documentação e preservação de referências humanas e locais em decisões de design.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
