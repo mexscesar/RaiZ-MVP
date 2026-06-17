@@ -53,10 +53,10 @@ export default function Dashboard({ projects, onSelectProject, onRefreshProjects
   return (
     <div className="space-y-8 animate-fade-in">
       {/* Narrative Header Banner */}
-      <div className="bg-white border border-raiz-border p-6 md:p-8 relative">
-        <div className="absolute top-0 left-0 right-0 h-1 bg-raiz-terracotta"></div>
+      <div className="bg-gradient-to-r from-emerald-50/40 to-green-50/10 border border-emerald-100 p-6 md:p-8 relative rounded-2xl shadow-xs overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 to-green-400"></div>
         <div className="max-w-3xl space-y-3">
-          <span className="text-[10px] uppercase font-mono tracking-widest text-raiz-terracotta font-semibold block">
+          <span className="text-[10px] uppercase font-mono tracking-widest text-emerald-800 font-bold block">
             GABINETE DE PRESERVAÇÃO INTEGRADA
           </span>
           <h2 className="font-serif italic text-3xl text-raiz-dark font-semibold tracking-tight">
@@ -72,15 +72,15 @@ export default function Dashboard({ projects, onSelectProject, onRefreshProjects
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         
         {/* Stat 1: Total Dossiers */}
-        <div className="bg-white border border-raiz-border p-5 relative flex flex-col justify-between min-h-[110px]">
+        <div className="bg-white border border-raiz-border p-5 relative flex flex-col justify-between min-h-[110px] rounded-2xl shadow-xs hover:shadow-sm transition-all">
           <div className="text-[9px] font-mono uppercase tracking-wider text-raiz-gray">
             DOSSIÊS ATIVOS // RZ-P0
           </div>
           <div className="flex items-baseline justify-between mt-2">
-            <span className="font-serif italic text-4xl font-bold text-raiz-dark">
+            <span className="font-serif italic text-4xl font-bold text-[#111827]">
               {totalProjects}
             </span>
-            <Layers className="w-5 h-5 text-raiz-green stroke-1" />
+            <Layers className="w-5 h-5 text-emerald-600 stroke-[1.5]" />
           </div>
           <p className="text-[10px] text-raiz-gray font-mono mt-1">
             Projetos cadastrados em nuvem do navegador
@@ -88,15 +88,15 @@ export default function Dashboard({ projects, onSelectProject, onRefreshProjects
         </div>
 
         {/* Stat 2: Average Embedding Index */}
-        <div className="bg-white border border-raiz-border p-5 relative flex flex-col justify-between min-h-[110px]">
+        <div className="bg-white border border-raiz-border p-5 relative flex flex-col justify-between min-h-[110px] rounded-2xl shadow-xs hover:shadow-sm transition-all">
           <div className="text-[9px] font-mono uppercase tracking-wider text-raiz-gray">
             ÍNDICE MÉDIO // RAIG-M
           </div>
           <div className="flex items-baseline justify-between mt-2">
-            <span className="font-serif italic text-4xl font-bold text-raiz-terracotta">
+            <span className="font-serif italic text-4xl font-bold text-emerald-700">
               {averageIndex}%
             </span>
-            <Milestone className="w-5 h-5 text-raiz-terracotta stroke-1" />
+            <Milestone className="w-5 h-5 text-emerald-600 stroke-[1.5]" />
           </div>
           <p className="text-[10px] text-raiz-gray font-mono mt-1">
             Nível geral médio de contextualização
@@ -104,15 +104,15 @@ export default function Dashboard({ projects, onSelectProject, onRefreshProjects
         </div>
 
         {/* Stat 3: Total References logged */}
-        <div className="bg-white border border-raiz-border p-5 relative flex flex-col justify-between min-h-[110px]">
+        <div className="bg-white border border-raiz-border p-5 relative flex flex-col justify-between min-h-[110px] rounded-2xl shadow-xs hover:shadow-sm transition-all">
           <div className="text-[9px] font-mono uppercase tracking-wider text-raiz-gray">
             REPOSTÓRIO DE REFERÊNCIAS // REF-TOT
           </div>
           <div className="flex items-baseline justify-between mt-2">
-            <span className="font-serif italic text-4xl font-bold text-raiz-dark">
+            <span className="font-serif italic text-4xl font-bold text-[#111827]">
               {totalReferences}
             </span>
-            <Compass className="w-5 h-5 text-raiz-green stroke-1" />
+            <Compass className="w-5 h-5 text-emerald-600 stroke-[1.5]" />
           </div>
           <p className="text-[10px] text-raiz-gray font-mono mt-1">
             Tradições, folclores e símbolos catalogados
@@ -120,15 +120,15 @@ export default function Dashboard({ projects, onSelectProject, onRefreshProjects
         </div>
 
         {/* Stat 4: Preserved fragments overall */}
-        <div className="bg-white border border-raiz-border p-5 relative flex flex-col justify-between min-h-[110px]">
+        <div className="bg-white border border-raiz-border p-5 relative flex flex-col justify-between min-h-[110px] rounded-2xl shadow-xs hover:shadow-sm transition-all">
           <div className="text-[9px] font-mono uppercase tracking-wider text-raiz-gray">
             FRAGMENTOS DE CONTEXTO // FRAG-PRE
           </div>
           <div className="flex items-baseline justify-between mt-2">
-            <span className="font-serif italic text-4xl font-bold text-raiz-dark">
+            <span className="font-serif italic text-4xl font-bold text-[#111827]">
               {totalArtifacts}
             </span>
-            <FolderKanban className="w-5 h-5 text-raiz-gray stroke-1" />
+            <FolderKanban className="w-5 h-5 text-raiz-gray stroke-[1.5]" />
           </div>
           <p className="text-[10px] text-raiz-gray font-mono mt-1">
             Soma de referências, memórias, decisões e críticas
@@ -150,16 +150,16 @@ export default function Dashboard({ projects, onSelectProject, onRefreshProjects
               <button
                 id="btn-new-project-toggle"
                 onClick={() => setShowNewProjectForm(true)}
-                className="flex items-center gap-1.5 bg-raiz-green hover:bg-raiz-green/90 text-white font-sans uppercase font-medium tracking-wider text-[10px] px-3.5 py-2 transition-colors cursor-pointer select-none"
+                className="flex items-center gap-1.5 bg-gradient-to-r from-emerald-600 to-green-500 hover:from-emerald-700 hover:to-green-700 text-white font-sans uppercase font-semibold tracking-wider text-[10px] px-4 py-2.5 rounded-xl shadow-xs hover:shadow-md transition-all cursor-pointer select-none"
               >
-                <Plus className="w-3.5 h-3.5" />
+                <Plus className="w-4 h-4" />
                 Novo Projeto
               </button>
             )}
           </div>
 
           {totalProjects === 0 ? (
-            <div className="bg-white border border-dashed border-raiz-border p-12 text-center rounded-none">
+            <div className="bg-white border border-dashed border-raiz-border p-12 text-center rounded-2xl shadow-xs">
               <Layers className="w-10 h-10 text-raiz-gray/40 mx-auto mb-4 stroke-1 animate-pulse" />
               <p className="font-serif italic text-base text-raiz-dark">A sua prateleira está vazia</p>
               <p className="text-xs text-raiz-gray mt-2 max-w-sm mx-auto">
@@ -167,7 +167,7 @@ export default function Dashboard({ projects, onSelectProject, onRefreshProjects
               </p>
               <button
                 onClick={() => setShowNewProjectForm(true)}
-                className="mt-6 inline-flex items-center gap-1.5 bg-raiz-terracotta hover:bg-raiz-terracotta/90 text-white font-sans uppercase font-medium tracking-wider text-[10px] px-4 py-2.5 transition-colors cursor-pointer select-none"
+                className="mt-6 inline-flex items-center gap-1.5 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white font-sans uppercase font-semibold tracking-wider text-[10px] px-5 py-3 rounded-xl transition-all cursor-pointer select-none shadow-sm"
               >
                 <Plus className="w-3.5 h-3.5" />
                 Criar Primeiro Dossiê
@@ -182,20 +182,20 @@ export default function Dashboard({ projects, onSelectProject, onRefreshProjects
                 return (
                   <div
                     key={proj.id}
-                    className="bg-white border border-raiz-border hover:border-raiz-green p-6 relative flex flex-col justify-between group transition-all duration-300"
+                    className="bg-white border border-raiz-border hover:border-emerald-500 p-6 relative flex flex-col justify-between group rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 overflow-hidden"
                   >
                     {/* Tiny visual ribbon showing context color based on selection */}
-                    <div className="absolute top-0 left-0 right-0 h-1 bg-raiz-border group-hover:bg-raiz-green transition-colors"></div>
-                    <div className="absolute -top-3.5 right-4 bg-raiz-bg px-2 py-0.5 text-[8px] font-mono uppercase tracking-widest text-raiz-gray border border-raiz-border">
+                    <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#E4E7EC] group-hover:bg-emerald-500 transition-colors"></div>
+                    <div className="absolute -top-3.5 right-4 bg-[#F2F4F7] px-2.5 py-1 text-[8px] font-mono uppercase tracking-widest text-[#475467] border border-raiz-border rounded-full font-bold shadow-xs">
                       CÓD-P{proj.id.slice(-3).toUpperCase()}
                     </div>
 
-                    <div className="space-y-3">
-                      <span className="text-[9px] uppercase font-mono tracking-widest text-raiz-terracotta font-semibold">
+                    <div className="space-y-3 pt-2">
+                      <span className="text-[9px] uppercase font-mono tracking-widest text-raiz-terracotta font-bold">
                         {proj.mainCulturalContext}
                       </span>
                       
-                      <h4 className="font-serif italic text-lg leading-snug font-semibold text-raiz-dark group-hover:text-raiz-green transition-colors">
+                      <h4 className="font-serif italic text-lg leading-snug font-bold text-raiz-dark group-hover:text-emerald-700 transition-colors">
                         {proj.name}
                       </h4>
 
@@ -208,20 +208,20 @@ export default function Dashboard({ projects, onSelectProject, onRefreshProjects
                     <div className="mt-6 pt-4 border-t border-raiz-border space-y-2">
                       <div className="flex justify-between items-center text-[10px] font-mono">
                         <span className="text-raiz-gray uppercase">Enraizamento:</span>
-                        <span className="text-raiz-dark font-bold font-serif italic text-xs">
+                        <span className="text-[#101828] font-bold font-serif italic text-xs">
                           {indexDetails.score}%
                         </span>
                       </div>
-                      <div className="w-full bg-raiz-bg h-1 rounded-none overflow-hidden/20">
+                      <div className="w-full bg-[#EAECF0] h-2 rounded-full overflow-hidden">
                         <div
-                          className="bg-raiz-green h-full transition-all duration-300"
+                          className="bg-gradient-to-r from-emerald-500 to-green-400 h-full rounded-full transition-all duration-300"
                           style={{ width: `${indexDetails.score}%` }}
                         ></div>
                       </div>
                       
                       <div className="flex justify-between items-center text-[9px] font-mono text-raiz-gray pt-1">
                         <span>{itemsCount} fragmento(s)</span>
-                        <span className="uppercase tracking-tight text-[8px]">
+                        <span className="uppercase tracking-tight text-[8px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full font-bold">
                           {indexDetails.level.split(" ")[0]}
                         </span>
                       </div>
@@ -230,10 +230,10 @@ export default function Dashboard({ projects, onSelectProject, onRefreshProjects
                     {/* Active access action row */}
                     <button
                       onClick={() => onSelectProject(proj)}
-                      className="mt-5 w-full bg-raiz-bg hover:bg-raiz-green hover:text-white border border-raiz-border group-hover:border-raiz-green py-2.5 px-3 flex items-center justify-between text-[11px] font-mono tracking-wider uppercase transition-all cursor-pointer group-hover:shadow-xs"
+                      className="mt-5 w-full bg-raiz-bg hover:bg-gradient-to-r hover:from-emerald-600 hover:to-green-500 hover:text-white hover:border-transparent border border-raiz-border py-3 px-4 flex items-center justify-between text-[11px] font-mono tracking-wider uppercase transition-all cursor-pointer rounded-xl font-bold active:scale-[0.99] shadow-xs hover:shadow-md"
                     >
                       <span>Abrir Arquivo Vivo</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 text-raiz-terracotta group-hover:text-white transition-colors" />
+                      <ArrowUpRight className="w-4 h-4 text-emerald-600 group-hover:text-white transition-colors" />
                     </button>
                   </div>
                 );
@@ -244,14 +244,14 @@ export default function Dashboard({ projects, onSelectProject, onRefreshProjects
 
         {/* Right Block - Project Creation Form Panel */}
         {showNewProjectForm && (
-          <div className="bg-white border border-raiz-border p-6 rounded-none space-y-6 animate-fade-in lg:sticky lg:top-4">
+          <div className="bg-white border border-raiz-border p-6 rounded-2xl shadow-md space-y-6 animate-fade-in lg:sticky lg:top-[90px] overflow-hidden">
             <div className="flex items-center justify-between">
-              <h3 className="font-serif italic text-lg text-raiz-dark">
+              <h3 className="font-serif italic text-lg text-raiz-dark font-bold">
                 Novo Registro de Gênese
               </h3>
               <button
                 onClick={() => setShowNewProjectForm(false)}
-                className="text-raiz-gray hover:text-raiz-dark p-1 cursor-pointer"
+                className="text-raiz-gray hover:text-raiz-dark p-1.5 hover:bg-raiz-bg rounded-full transition-all cursor-pointer"
                 title="Fechar Formulário"
               >
                 <X className="w-4 h-4" />
@@ -264,14 +264,14 @@ export default function Dashboard({ projects, onSelectProject, onRefreshProjects
 
             <form onSubmit={handleCreateProject} className="space-y-4">
               {error && (
-                <div className="p-2.5 bg-red-50 border border-red-200 text-red-500 text-xs font-medium rounded-none">
+                <div className="p-3 bg-red-50 border border-red-100 text-red-600 text-xs font-semibold rounded-xl">
                   {error}
                 </div>
               )}
 
               {/* Title */}
-              <div>
-                <label htmlFor="p-name" className="block text-xs uppercase font-mono tracking-wider text-raiz-gray mb-1.5">
+              <div className="space-y-1">
+                <label htmlFor="p-name" className="block text-[11px] uppercase font-mono tracking-wider text-raiz-gray font-bold">
                   Nome do Projeto (Manifestação)
                 </label>
                 <input
@@ -283,20 +283,20 @@ export default function Dashboard({ projects, onSelectProject, onRefreshProjects
                     setError('');
                   }}
                   placeholder="Ex. LUME - Luminária Cabocla"
-                  className="w-full bg-raiz-bg border border-raiz-border px-3.5 py-2.5 text-xs focus:outline-none focus:border-raiz-green text-raiz-dark"
+                  className="w-full bg-[#F9FAFB] border border-gray-200 px-3.5 py-3 text-xs focus:bg-white focus:outline-none focus:ring-4 focus:ring-emerald-500/10 focus:border-emerald-500 text-raiz-dark rounded-xl transition-all"
                 />
               </div>
 
               {/* Cultural Context options mapping */}
-              <div>
-                <label htmlFor="p-context" className="block text-xs uppercase font-mono tracking-wider text-raiz-gray mb-1.5">
+              <div className="space-y-1">
+                <label htmlFor="p-context" className="block text-[11px] uppercase font-mono tracking-wider text-raiz-gray font-bold">
                   Contexto Cultural Principal
                 </label>
                 <select
                   id="p-context"
                   value={mainCulturalContext}
                   onChange={(e) => setMainCulturalContext(e.target.value)}
-                  className="w-full bg-raiz-bg border border-raiz-border px-3.5 py-2.5 text-xs focus:outline-none focus:border-raiz-green text-raiz-dark font-sans"
+                  className="w-full bg-[#F9FAFB] border border-gray-200 px-3.5 py-3 text-xs focus:bg-white focus:outline-none focus:ring-4 focus:ring-emerald-500/10 focus:border-emerald-500 text-raiz-dark font-sans rounded-xl transition-all"
                 >
                   <option value="Cultura Nordestina">Cultura Nordestina</option>
                   <option value="Cultura Amazônica">Cultura Amazônica</option>
@@ -309,8 +309,8 @@ export default function Dashboard({ projects, onSelectProject, onRefreshProjects
               </div>
 
               {/* Objective */}
-              <div>
-                <label htmlFor="p-objective" className="block text-xs uppercase font-mono tracking-wider text-raiz-gray mb-1.5">
+              <div className="space-y-1">
+                <label htmlFor="p-objective" className="block text-[11px] uppercase font-mono tracking-wider text-raiz-gray font-bold">
                   Objetivo e Manifesto do Projeto
                 </label>
                 <textarea
@@ -322,7 +322,7 @@ export default function Dashboard({ projects, onSelectProject, onRefreshProjects
                     setError('');
                   }}
                   placeholder="Ex. Desenvolver uma luminária tátil que resgata a iluminação acolhedora dos lampiões sertanejos, contra a esterilidade de tons frios nórdicos promovidos por algoritmos."
-                  className="w-full bg-raiz-bg border border-raiz-border px-3.5 py-2.5 text-xs focus:outline-none focus:border-raiz-green text-raiz-dark"
+                  className="w-full bg-[#F9FAFB] border border-gray-200 px-3.5 py-3 text-xs focus:bg-white focus:outline-none focus:ring-4 focus:ring-emerald-500/10 focus:border-emerald-500 text-raiz-dark rounded-xl transition-all"
                 />
               </div>
 
@@ -330,14 +330,14 @@ export default function Dashboard({ projects, onSelectProject, onRefreshProjects
                 <button
                   type="button"
                   onClick={() => setShowNewProjectForm(false)}
-                  className="w-1/3 border border-raiz-border hover:bg-raiz-bg text-raiz-gray font-sans uppercase font-medium tracking-wider text-[10px] py-3.5 transition-colors cursor-pointer"
+                  className="w-1/3 border border-gray-200 hover:bg-raiz-bg text-raiz-gray font-sans uppercase font-bold tracking-wider text-[10px] py-3.5 rounded-xl transition-colors cursor-pointer"
                 >
                   Cancelar
                 </button>
                 <button
                   id="btn-create-project-submit"
                   type="submit"
-                  className="w-2/3 bg-raiz-green hover:bg-raiz-green/90 text-white font-sans uppercase font-medium tracking-wider text-[10px] py-3.5 transition-colors cursor-pointer"
+                  className="w-2/3 bg-gradient-to-r from-emerald-600 to-green-500 hover:from-emerald-700 hover:to-green-600 text-white font-sans uppercase font-bold tracking-wider text-[10px] py-3.5 rounded-xl transition-all cursor-pointer shadow-sm hover:shadow-md"
                 >
                   Registrar Gênese
                 </button>

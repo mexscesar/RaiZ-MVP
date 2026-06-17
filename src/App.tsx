@@ -4,7 +4,15 @@ import { getStoredUser, clearUserSession, getStoredProjects, deleteProject } fro
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import ProjectWorkspace from './components/ProjectWorkspace';
-import { LogOut, Globe, HeartHandshake, ShieldAlert, Cpu } from 'lucide-react';
+import { LogOut, Globe, HeartHandshake, ShieldAlert, Cpu, Sparkles, ShieldCheck } from 'lucide-react';
+
+const getInitials = (name: string) => {
+  const parts = name.split(' ');
+  if (parts.length >= 2) {
+    return (parts[0][0] + parts[1][0]).toUpperCase();
+  }
+  return name.slice(0, 2).toUpperCase();
+};
 
 export default function App() {
   const [session, setSession] = useState<UserSession | null>(null);
@@ -56,71 +64,64 @@ export default function App() {
 
   // If session is empty, show login panel immediately
   if (!session) {
-    return (
-      <div className="bg-raiz-bg min-h-screen SelectionColor py-6">
-        <main className="container mx-auto max-w-6xl">
-          <Login onLoginSuccess={handleLoginSuccess} />
-        </main>
-      </div>
-    );
+    return <Login onLoginSuccess={handleLoginSuccess} />;
   }
 
   return (
     <div className="bg-raiz-bg min-h-screen flex flex-col justify-between selection:bg-raiz-terracotta/20 selection:text-raiz-dark">
-      {/* Platform Header - Hidden in Print media */}
-      <header className="bg-white border-b border-raiz-border px-6 py-4 md:py-5 no-print sticky top-0 z-30 shadow-xs">
-        <div className="container mx-auto max-w-6xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+      {/* Platform Header - Floating modern capsule in green tones */}
+      <header className="mx-auto w-full max-w-6xl mt-6 px-4 md:px-6 no-print sticky top-4 z-40">
+        <div className="bg-gradient-to-r from-[#062014] via-[#0E3523] to-[#144830] border border-white/10 rounded-2xl px-6 py-4 shadow-xl shadow-emerald-950/20 text-white flex flex-col md:flex-row md:items-center justify-between gap-4">
           
-          {/* Logo & Manifesto subtitle */}
-          <div className="flex items-center gap-3">
+          {/* Logo & Workspace Capsule Indicator */}
+          <div className="flex items-center justify-between md:justify-start gap-4 w-full md:w-auto">
             <div 
-              className="font-serif italic text-2xl font-bold text-raiz-green tracking-tight select-none cursor-pointer"
+              className="font-serif italic text-2xl font-black text-white tracking-tight select-none cursor-pointer flex items-center gap-2.5 hover:opacity-90 active:scale-95 transition-all"
               onClick={() => setSelectedProject(null)}
               title="Voltar ao Painel Geral"
             >
-              RAIZ
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-emerald-400 to-green-500 flex items-center justify-center shadow-md">
+                <Sparkles className="w-4.5 h-4.5 text-[#061C12]" />
+              </div>
+              <span>RAIZ</span>
             </div>
             
-            <div className="h-4 w-[1px] bg-raiz-border hidden sm:block"></div>
-            
-            <div className="hidden sm:block text-[10px] uppercase font-mono tracking-wider text-raiz-gray">
-              Pesquisa, Memória e Arquivo Vivo
+            {/* Capsule Pill similar to mockup's "Workspace Ativo • Modo Autónomo" */}
+            <div className="flex items-center gap-2 bg-white/10 border border-white/10 px-3 py-1 rounded-full text-[10px] font-mono tracking-wider text-emerald-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 select-none animate-pulse"></span>
+              <span className="font-semibold">WORKSPACE ATIVO &bull; MODO AUTÔNOMO</span>
             </div>
           </div>
 
-          {/* User Session & Sign Out details */}
-          <div className="flex flex-wrap items-center justify-start md:justify-end gap-3 md:gap-5">
-            <div className="text-left md:text-right font-mono text-[10px] leading-tight shrink-0">
-              <span className="text-raiz-gray uppercase block">Designer Ativo</span>
-              <span className="text-raiz-dark/95 font-medium">
-                {session.name} <span className="text-raiz-terracotta">({session.email.split('@')[0]})</span>
-              </span>
+          {/* User Session info, Avatar circle & Logout button */}
+          <div className="flex items-center justify-end gap-4 w-full md:w-auto mt-2 md:mt-0 pt-3 md:pt-0 border-t border-white/10 md:border-t-0">
+            
+            {/* User credentials */}
+            <div className="text-right font-sans leading-tight hidden sm:block">
+              <span className="text-white font-semibold text-xs block">{session.name}</span>
+              <span className="text-emerald-300/70 text-[10px] font-mono tracking-tight">{session.email}</span>
             </div>
 
-            <div className="h-4 w-[1px] bg-raiz-border"></div>
+            {/* Initials Avatar Bubble */}
+            <div 
+              className="w-10 h-10 rounded-full bg-gradient-to-tr from-emerald-800 to-emerald-950 border border-white/20 flex items-center justify-center font-mono text-xs font-bold text-white select-none shadow-inner"
+              title={`${session.name} (${session.email})`}
+            >
+              {getInitials(session.name)}
+            </div>
 
+            <div className="h-5 w-[1px] bg-white/20 hidden sm:block"></div>
+
+            {/* Logout button */}
             <button
               onClick={handleLogout}
-              className="flex items-center gap-1 bg-raiz-bg hover:bg-raiz-border/50 border border-raiz-border px-3 py-1.5 text-[10px] font-mono uppercase tracking-wider text-raiz-gray hover:text-raiz-dark transition-all cursor-pointer select-none rounded-none"
+              className="p-2 md:p-2.5 bg-white/5 hover:bg-red-500/20 hover:text-red-300 border border-white/10 rounded-xl text-white transition-all cursor-pointer flex items-center justify-center select-none active:scale-95"
               title="Sair da plataforma"
             >
-              <LogOut className="w-3.5 h-3.5" />
-              Encerrar
+              <LogOut className="w-4 h-4" />
             </button>
           </div>
 
-        </div>
-
-        {/* Minimal aesthetic ticker detailing Design Futures context */}
-        <div className="container mx-auto max-w-6xl mt-3 md:mt-4 pt-2 border-t border-raiz-bg/85 flex flex-wrap items-center justify-between text-[9px] font-mono text-raiz-gray">
-          <div className="flex items-center gap-1.5 shrink-0">
-            <Cpu className="w-3 h-3 text-raiz-terracotta" />
-            <span>ARQUIVO ANTI-VAZIO DIGITAL // RESISTÊNCIA COGNITIVA</span>
-          </div>
-          <div className="hidden md:flex items-center gap-3 shrink-0">
-            <span>SISTEMA ATIVO: 100% REGIONALIDADE</span>
-            <span>CORDEL // TAPAJÓS // URBANO</span>
-          </div>
         </div>
       </header>
 
